@@ -261,7 +261,7 @@ const GENRE = {
 projector.configureFilm(GENRE.COMEDY);
 
 class Projector {
-  // delactation of Projector
+  // declaration of Projector
   configureFilm(genre) {
     switch (genre) {
       case GENRE.ROMANTIC:
@@ -284,7 +284,7 @@ enum GENRE {
 projector.configureFilm(GENRE.COMEDY);
 
 class Projector {
-  // delactation of Projector
+  // declaration of Projector
   configureFilm(genre) {
     switch (genre) {
       case GENRE.ROMANTIC:
@@ -309,14 +309,16 @@ In cases where it's not, most of the time a higher-level object will suffice as 
 
 Consider using object literals if you are finding yourself needing a lot of arguments.  
 
-To make it obvious what properties the function expects, you can use the [destructuring](https://basarat.gitbooks.io/typescript/docs/destructuring.html) syntax.
+To make it obvious what properties the function expects, you can use the [destructuring](https://basarat.gitbook.io/typescript/future-javascript/destructuring) syntax.
 This has a few advantages:
 
 1. When someone looks at the function signature, it's immediately clear what properties are being used.
 
-2. Destructuring also clones the specified primitive values of the argument object passed into the function. This can help prevent side effects. Note: objects and arrays that are destructured from the argument object are NOT cloned.
+2. It can be used to simulate named parameters.
 
-3. TypeScript warns you about unused properties, which would be impossible without destructuring.
+3. Destructuring also clones the specified primitive values of the argument object passed into the function. This can help prevent side effects. Note: objects and arrays that are destructured from the argument object are NOT cloned.
+
+4. TypeScript warns you about unused properties, which would be impossible without destructuring.
 
 **Bad:**
 
@@ -365,7 +367,7 @@ createMenu({
 
 ### Functions should do one thing
 
-This is by far the most important rule in software engineering. When functions do more than one thing, they are harder to compose, test, and reason about. When you can isolate a function to just one action, they can be refactored easily and your code will read much cleaner. If you take nothing else away from this guide other than this, you'll be ahead of many developers.
+This is by far the most important rule in software engineering. When functions do more than one thing, they are harder to compose, test, and reason about. When you can isolate a function to just one action, it can be refactored easily and your code will read much cleaner. If you take nothing else away from this guide other than this, you'll be ahead of many developers.
 
 **Bad:**
 
@@ -845,7 +847,7 @@ if (subscription.isTrial || account.balance > 0) {
 
 ```ts
 function canActivateService(subscription: Subscription, account: Account) {
-  return subscription.isTrial || account.balance > 0
+  return subscription.isTrial || account.balance > 0;
 }
 
 if (canActivateService(subscription, account)) {
@@ -2277,14 +2279,14 @@ downloadPage('https://en.wikipedia.org/wiki/Robert_Cecil_Martin', 'article.html'
   .catch(error => console.error(error));  
 ```
 
-Promises supports a few helper methods that help make code more conscise:  
+Promises supports a few helper methods that help make code more concise:  
 
 | Pattern                  | Description                                |  
 | ------------------------ | -----------------------------------------  |  
 | `Promise.resolve(value)` | Convert a value into a resolved promise.   |  
 | `Promise.reject(error)`  | Convert an error into a rejected promise.  |  
-| `Promise.all(promises)`  |Returns a new promise which is fulfilled with an array of fulfillment values for the passed promises or rejects with the reason of the first promise that rejects. |
-| `Promise.race(promises)`|Returns a new promise which is fulfilled/rejected with the result/error of the first settled promise from the array of passed promises. |
+| `Promise.all(promises)`  | Returns a new promise which is fulfilled with an array of fulfillment values for the passed promises or rejects with the reason of the first promise that rejects. |
+| `Promise.race(promises)`| Returns a new promise which is fulfilled/rejected with the result/error of the first settled promise from the array of passed promises. |
 
 `Promise.all` is especially useful when there is a need to run tasks in parallel. `Promise.race` makes it easier to implement things like timeouts for promises.
 
@@ -2348,7 +2350,7 @@ execution on the current stack, killing the process (in Node), and notifying you
 JavaScript as well as TypeScript allow you to `throw` any object. A Promise can also be rejected with any reason object.  
 It is advisable to use the `throw` syntax with an `Error` type. This is because your error might be caught in higher level code with a `catch` syntax.
 It would be very confusing to catch a string message there and would make
-[debugging more painful](https://basarat.gitbooks.io/typescript/docs/types/exceptions.html#always-use-error).  
+[debugging more painful](https://basarat.gitbook.io/typescript/type-system/exceptions#always-use-error).  
 For the same reason you should reject promises with `Error` types.
 
 **Bad:**
@@ -2502,7 +2504,7 @@ For TypeScript there is a powerful tool called [TSLint](https://palantir.github.
 
 - [Immutable](https://www.npmjs.com/package/tslint-immutable) - rules to disable mutation in TypeScript
 
-Refer also to this great [TypeScript StyleGuide and Coding Conventions](https://basarat.gitbooks.io/typescript/docs/styleguide/styleguide.html) source.
+Refer also to this great [TypeScript StyleGuide and Coding Conventions](https://basarat.gitbook.io/typescript/styleguide) source.
 
 ### Use consistent capitalization
 
@@ -2895,11 +2897,7 @@ This is also available in other languages:
 - ![ja](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Japan.png) **Japanese**: [MSakamaki/clean-code-typescript](https://github.com/MSakamaki/clean-code-typescript)
 - ![ru](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Russia.png) **Russian**: [Real001/clean-code-typescript](https://github.com/Real001/clean-code-typescript)
 - ![tr](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Turkey.png) **Turkish**: [ozanhonamlioglu/clean-code-typescript](https://github.com/ozanhonamlioglu/clean-code-typescript)
-
-
-There is work in progress for translating this to other languages:
-
-- ![kr](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/South-Korea.png) Korean
+- ![ko](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/South-Korea.png) **Korean**: [738/clean-code-typescript](https://github.com/738/clean-code-typescript)
 
 References will be added once translations are completed.  
 Check this [discussion](https://github.com/labs42io/clean-code-typescript/issues/15) for more details and progress.
